@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Chaac</title>
+	<meta name="description" content="Chaac is the perfect assistant for your watering" />
+	<link rel="shortcut icon" href="favicon.ico">
+	<link rel="stylesheet" type="text/css" href="css/normalize.css" />
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="css/style.css" />
+	<style>
+
+		h3 {
+			color: #fff;
+		}
+
+		li {
+			padding-bottom: 20px;
+		}
+
+		li.positive {
+			border-left: 10px solid #69B369;
+		}
+
+		li.negative {
+			border-left: 10px solid #E64444;
+		}
+
+		li.warning {
+			border-left: 10px solid #ED9B27;
+		}
+
+		.green {
+			color: #69B369;
+		}
+
+		.red {
+			color: #E64444;
+		}
+
+		.orange {
+			color: #ED9B27;
+		}
+
+		.blue {
+			color: #2F8FAC;
+		}
+
+		.box {
+			display: inline-block;
+			font-family: Helvetica, sans-serif;
+			margin-left: 10px;
+		}
+
+		.img-box {
+		  width: 48px;
+		  height: 48px;
+		  border-radius: 5px;
+		  vertical-align: center;
+		}
+
+		ul>li>i {
+			margin-right: 20px;
+		}
+
+	</style>
+
+	<!--[if IE]>
+		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+</head>
+
+<body>
+	<div class="image-preload">
+		<img src="img/drop-color.png" alt="">
+		<img src="img/drop-alpha.png" alt="">
+		<img src="img/weather/texture-rain-fg.png" />
+		<img src="img/weather/texture-rain-bg.png" />
+	</div>
+	<div class="slideshow">
+		<canvas width="1" height="1" id="container" style="position:absolute"></canvas>
+		<div class="container" role="main">
+			<div class="page-header">
+	          <h1>Chaac prototype</h1>
+	        </div>
+	        <div class="row">
+	          <div class="col-sm-4">
+	              <h3><i class="fa fa-tint blue" aria-hidden="true"></i> Watering</h3>
+	            <ul class="list-group">
+	              <li class="list-group-item positive"><b>Area A</b> watered <b class="green">2 hours</b> ago <br/> (832L total)</li>
+	              <li class="list-group-item negative"><b>Area B</b> watered <b class="red">8 days</b> ago <br/> (442L total)</li>
+	              <li class="list-group-item warning"><b>Area C</b> watered <b class="orange">2 days</b> ago <br/> (666L total)</li>
+	            </ul>
+
+	            <h3><i class="fa fa-line-chart orange" aria-hidden="true"></i> Counter</h3>
+	          <ul class="list-group">
+	            <li class="list-group-item positive"><b class="green">0L/s</b> currently<br/><b class="green">1337L</b> total</li>
+	          </ul>
+	          </div><!-- /.col-sm-4 -->
+
+	          <img src="img/chaac_by_dragonfly929.png" class="img-responsive col-sm-4"/>
+
+	          <div class="col-sm-4">
+	              <h3><i class="fa fa-lightbulb-o orange" aria-hidden="true"></i> Lights</h3>
+	            <ul class="list-group">
+	              <li class="list-group-item positive"><b>Light 1</b> is <b class="green">off</b></li>
+	              <li class="list-group-item negative"><b>Light 2</b> is <b class="red">on</b><br/> since 10 min</li>
+	            </ul>
+
+	            <h3><i class="fa fa-superpowers blue" aria-hidden="true"></i> Pump</h3>
+	              <ul class="list-group">
+	                <li class="list-group-item positive">Currently <b class="green">inactive</b><br/>Since <b class="green">2 hours</b></li>
+	              </ul>
+	          </div><!-- /.col-sm-4 -->
+
+	        </div>
+
+	        <div class="row">
+	          <div class="col-sm-6">
+	              <h3><i class="fa fa-history red" aria-hidden="true"></i> History</h3>
+	            <ul class="list-group">
+	              <li class="list-group-item"><i class="fa fa-lightbulb-o fa-2x orange" aria-hidden="true"></i><b>Switch on</b> light <b>2</b> (10 min ago)</li>
+	              <li class="list-group-item"><i class="fa fa-tint fa-2x blue" aria-hidden="true"></i><b>200L</b> on area <b>A</b> (2 hours ago)</li>
+	              <li class="list-group-item"><i class="fa fa-tint fa-2x blue" aria-hidden="true"></i><b>150L</b> on area <b>C</b> (2 days ago)</li>
+	            </ul>
+	          </div><!-- /.col-sm-6 -->
+
+	          <div class="col-sm-6">
+	              <h3><i class="fa fa-list-ol green" aria-hidden="true"></i> Pending</h3>
+	            <ul class="list-group">
+	              <li class="list-group-item"><i class="fa fa-times fa-2x red" aria-hidden="true"></i>Watering <b>30L</b> on area <b>B</b> (ETA 1min)</li>
+	              <li class="list-group-item"><i class="fa fa-times fa-2x red" aria-hidden="true"></i>Watering <b>60L</b> on area <b>C</b> (ETA 3min)</li>
+	            </ul>
+	          </div><!-- /.col-sm-6 -->
+
+	        </div>
+
+	      </div>
+
+		</div>
+		<p class="nosupport">Sorry, but your browser does not support WebGL!</p>
+	</div>
+	<!-- /container -->
+	<script src="js/index.min.js"></script>
+</body>
+
+</html>
